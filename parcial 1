@@ -1,25 +1,24 @@
+import java.util.Scanner;
 
-public class parcial {
+public class Parcial {
     private String titulo;
     private String autor;
     private int numEjemplares;
     private int numPrestados;
 
- 
-    public parcial() {
+    public Parcial() {
         this.titulo = "";
         this.autor = "";
         this.numEjemplares = 0;
         this.numPrestados = 0;
     }
 
-    public parcial(String titulo, String autor, int numEjemplares, int numPrestados) {
+    public Parcial(String titulo, String autor, int numEjemplares, int numPrestados) {
         this.titulo = titulo;
         this.autor = autor;
         this.numEjemplares = numEjemplares;
         this.numPrestados = numPrestados;
     }
-
 
     public String getTitulo() {
         return titulo;
@@ -51,5 +50,37 @@ public class parcial {
 
     public void setNumPrestados(int numPrestados) {
         this.numPrestados = numPrestados;
+    }
+
+    @Override
+    public String toString() {
+        return "Título: " + titulo + "\nAutor: " + autor +
+               "\nEjemplares: " + numEjemplares + "\nPrestados: " + numPrestados;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Pedir datos al usuario
+        System.out.print("Ingrese el título del libro: ");
+        String titulo = scanner.nextLine();
+
+        System.out.print("Ingrese el autor del libro: ");
+        String autor = scanner.nextLine();
+
+        System.out.print("Ingrese el número de ejemplares: ");
+        int numEjemplares = scanner.nextInt();
+
+        System.out.print("Ingrese el número de ejemplares prestados: ");
+        int numPrestados = scanner.nextInt();
+
+        
+        Parcial libro = new Parcial(titulo, autor, numEjemplares, numPrestados);
+
+      
+        System.out.println("\nLibro agregado:");
+        System.out.println(libro);
+
+        scanner.close();
     }
 }
